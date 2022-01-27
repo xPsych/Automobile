@@ -35,7 +35,10 @@ print("---------------------------------------------")
 choice=int(input("Enter the Choice - "))
 print("\n")
 
-for choice in range(5,100):
+dict1={}#for item and the price
+dict2={}#for item and the quantity 
+
+if choice>=5 and choice<=0:
     print("*********************************************")
     print("Please Enter A Valid Input...")
     print("*********************************************")
@@ -68,7 +71,7 @@ if choice==1:
     for a in myrecords:
         print (a)
 
-if choice == 2:
+if choice == 2:#sort the username and password thing
     input("Enter the name of the parts you want to buy:")
     username=input('USERNAME:')
     password=input('PASSWORD:')
@@ -78,6 +81,25 @@ if choice == 2:
         import main
     else:
         print('''try again''')
+if choice==3:
+    """input("Enter the name of the part you want to sell:")
+    usename=input("USERNAME: ")
+    mycursor.execute("select * from user where username = ",username," and passwd = ''",password,"".format(username , password))
+    data = mycursor.fetchall()
+    if any(data) :
+        import main
+    else:
+        print('''try again''')"""
+    #that was the initial code
+    print(dict1.keys(),"this is the list of items we buy. ")
+    a=input("Enter the product you are willing to sell:")
+    if a in dict1:
+        print("The best price we can offer for",a,"is",dict1[a])
+        dict1[a]-=1
+    else:
+       print("We dont buy this product.")
+    
+       
 if choice==4:
     print('''Our contact details are given below, please feel free to inquire about any issues you face regarding your automobile.
 Contact Details:
