@@ -35,7 +35,7 @@ print("---------------------------------------------")
 choice=int(input("Enter the Choice - "))
 print("\n")
 
-for choice in range(5,100):
+while choice > 4:
     print("*********************************************")
     print("Please Enter A Valid Input...")
     print("*********************************************")
