@@ -32,22 +32,21 @@ print("2. Buying Parts")
 print("3. Selling Parts")
 print("4. General Inquiries")
 print("---------------------------------------------")
-choice=int(input("Enter the Choice - "))
+choice = int(input("Enter the Choice - "))
 print("\n")
+choices = [1, 2, 3, 4]
 
-while choice > 4:
+choice = int(input("Please confirm your input or change it if you would like:"))
+
+while choice in choices:
     print("*********************************************")
     print("Please Enter A Valid Input...")
     print("*********************************************")
     print("\n")
-    choice=int(input("Enter the Choice - "))
+    choice = int(input("Enter the Choice - "))
     break
 
-if choice in [1,2,3,4]:
-    v_qst = int(input("Please confirm your input or change it if you would like:"))
-    choice = v_qst    
-        
-if choice==1:
+if choice == 1:
     print("Please enter the following details asked below in order to book your automobile for servicing:")
     print("\n")
     v_sno=int(input("Your vehicle's serial Number: "))
@@ -68,22 +67,25 @@ if choice==1:
     for a in myrecords:
         print (a)
 
-if choice == 2:
-    input("Enter the name of the parts you want to buy:")
-    username=input('USERNAME:')
-    password=input('PASSWORD:')
-    mycursor.execute("select * from user where username = ",username," and passwd = ''",password,"".format(username , password))
+elif choice == 2:
+    print("Enter the name of the parts you want to buy:")
+    username = input('USERNAME:')
+    password = input('PASSWORD:')
+    mycursor.execute("select * from user where username = ", username, " and passwd = ''", password,
+                     "".format(username, password))
     data = mycursor.fetchall()
-    if any(data) :
+    if any(data):
         import main
     else:
         print('''try again''')
-if choice==4:
+
+elif choice == 3:
+    part = input("Part to sell")
+    # Further code to sell it
+
+elif choice == 4:
     print('''Our contact details are given below, please feel free to inquire about any issues you face regarding your automobile.
 Contact Details:
 Phone number:XXXXXXXXXX9
 Email Adress : rotorautomobiles@services.com
           ''')
-
-
-
