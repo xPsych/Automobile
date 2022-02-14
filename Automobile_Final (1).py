@@ -32,6 +32,8 @@ print("2. Buying Parts")
 print("3. Selling Parts")
 print("4. General Inquiries")
 print("---------------------------------------------")
+dict1={'suspension':5000,'bumper':10000,'headlights':12000}#item with price
+dict2={'suspension':50,'bumper':10,'headlights':12}#item with quantity
 choice = int(input("Enter the Choice - "))
 print("\n")
 choices = [1, 2, 3, 4]
@@ -79,9 +81,20 @@ elif choice == 2:
     else:
         print('''try again''')
 
-elif choice == 3:
-    part = input("Part to sell")
-    # Further code to sell it
+if choice == 3:
+    while choice==3:
+        part = input("Part to sell")
+        print(dict1.items(),
+              '''this is the list of items and price we are willing to buy it for in \'INR\' .'''
+        if part in dict1.keys():
+            print('\n')
+            print(dict1[part],'Rs is the amount we are willing to pay for it')
+            print('\n')
+            print("""to negociate or for any other details call us on the number below or send us an email""")
+            print('\n')
+            dict2[part]=dict2[part]+1
+            choice=4
+        continue
 
 elif choice == 4:
     print('''Our contact details are given below, please feel free to inquire about any issues you face regarding your automobile.
